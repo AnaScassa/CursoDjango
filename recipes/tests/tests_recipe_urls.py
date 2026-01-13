@@ -1,5 +1,5 @@
 from django.test import TestCase
-from django.urls import reverse, resolve
+from django.urls import reverse
 
 class RecipeURLsTest(TestCase):
     def test_the_pytest_is_ok(self):
