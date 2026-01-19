@@ -3,6 +3,7 @@ from django.urls import reverse, resolve
 from recipes import views
 from .tests_recipe_base import RecipeTestBase
 
+
 class RecipeViewsTest(RecipeTestBase):
 
     def tearDown(self) -> None:
@@ -95,6 +96,5 @@ class RecipeViewsTest(RecipeTestBase):
             '<h1>No recipes found here 🥲</h1>',
             response.content.decode('utf-8')
         )
-
        
     
