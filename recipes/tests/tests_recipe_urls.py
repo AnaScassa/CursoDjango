@@ -1,4 +1,6 @@
+from django import views
 from django.test import TestCase
+from django.urls import resolve, reverse
 from recipes.models import Category, Recipe, User
 
 
@@ -60,3 +62,12 @@ class RecipeTestBase(TestCase):
             preparation_steps_is_html=preparation_steps_is_html,
             is_published=is_published,
         )
+
+    def test_recipe_search_url_is_correct(self):
+        url = reverse('recipes:search')
+        self.assertEqual(url, '/recipes/search/')
+        # red - green - refactor
+
+    def test_recipe_search_uses_correct_view_function(self):
+            resolved = resolve(reverse('recipes:search'))
+            self.assertIs(resolved.func, views.search)
